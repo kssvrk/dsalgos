@@ -59,24 +59,39 @@ class LinkedList:
         
         if(updated is None):
             raise IndexError(" Given position is out of range")
-    def traverse(self):
+    def traverse(self,pos=None):
+        current=self.head 
+        count=0
+        while current:
+            if(count==pos):
+                return current
+            current=current.next_node
+            count=count+1
+        raise IndexError(" Given position is out of range")
+    def __repr__(self):
         nodes=[]
         current=self.head 
         count=0
         while current:
             if(count==0):
-                nodes.append(f"Head : {current.data} ,")
+                nodes.append(f"Head : {current.data} ")
             elif(current.next_node==None):
-                nodes.append(f"Tail : {current.data} ,")
+                nodes.append(f"Tail : {current.data} ")
             else:
-                nodes.append(f"Node :{current.data} ,")
+                nodes.append(f"Node :{current.data} ")
             current=current.next_node
             count=count+1
-        return nodes
-    def __repr__(self):
-        ns=self.traverse()
-        return ' '.join(ns)
-    
+        return '=> '.join(nodes)
+    def search(self,data):
+        current=self.head
+        count=0
+        while current:
+            
+            if(current.data==data):
+                return count
+            current=current.next_node
+            count=count+1
+        raise Exception(" Given data not available in the linked list")
 if(__name__=='__main__'):
     ll=LinkedList()
     ll.add(0,0)
