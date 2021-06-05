@@ -43,7 +43,7 @@ class LinkedList:
             self.head=Node(data)
             self.head.next_node=d
             updated=1
-            print(f" Added {self.head} at position {position}")
+            #print(f" Added {self.head} at position {position}")
         else:
             current=self.head    
             while current:
@@ -53,17 +53,17 @@ class LinkedList:
                     current.next_node=Node(data)
                     current.next_node.next_node=d
                     updated=1
-                    print(f" Added {current.next_node} at position {position}")
+                    #print(f" Added {current.next_node} at position {position}")
                     break
                 current=current.next_node
         
         if(updated is None):
             raise IndexError(" Given position is out of range")
-    def traverse(self,pos=None):
+    def traverse(self,position):
         current=self.head 
         count=0
         while current:
-            if(count==pos):
+            if(count==position):
                 return current
             current=current.next_node
             count=count+1
