@@ -44,18 +44,18 @@ class LinkedList:
             self.head.next_node=d
             updated=1
             print(f" Added {self.head} at position {position}")
-            
-        current=self.head    
-        while current:
-            count=count+1
-            if(position==count):
-                d=current.next_node
-                current.next_node=Node(data)
-                current.next_node.next_node=d
-                updated=1
-                print(f" Added {current.next_node} at position {position}")
-                break
-            current=current.next_node
+        else:
+            current=self.head    
+            while current:
+                count=count+1
+                if(position==count):
+                    d=current.next_node
+                    current.next_node=Node(data)
+                    current.next_node.next_node=d
+                    updated=1
+                    print(f" Added {current.next_node} at position {position}")
+                    break
+                current=current.next_node
         
         if(updated is None):
             raise IndexError(" Given position is out of range")
@@ -92,10 +92,38 @@ class LinkedList:
             current=current.next_node
             count=count+1
         raise Exception(" Given data not available in the linked list")
+    def delete(self,position):
+        
+        updated=None
+        if(position==0):
+            if(self.is_empty()):
+                raise IndexError(" Given position is out of range")
+            print(f" removing {self.head} at position {position}")
+            d=self.head 
+            self.head= d.next_node 
+            updated=1
+            
+        else:
+            current=self.head
+            count=1
+            while current:
+                if(count==position and (current.next_node is not None)):
+                    print(f" removing {current.next_node} at position {position}")
+                    current.next_node=current.next_node.next_node
+                    updated=1
+                    
+                    break
+                count=count+1
+                current=current.next_node
+                
+        if(updated is None):
+            raise IndexError(" Given position is out of range")
 if(__name__=='__main__'):
     ll=LinkedList()
     ll.add(0,0)
     ll.add(2,1)
     ll.add(4,2)
     ll.add(8,3)
-            
+    ll.add(16,4)
+    ll.add(32,5)
+    ll.add(64,6)          
