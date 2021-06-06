@@ -109,7 +109,16 @@ def llsort(ll):
                 k.append(llmerge(d[2*n],d[2*n+1]))
         d=k
     return d
-        
+
+def recursive_mergesort(num):
+    print(num)
+    l=len(num)
+    if(l<=1):
+        return num
+    left=num[:floor(l/2)]
+    right=num[floor(l/2):]
+    
+    return merge(recursive_sort(left),recursive_sort(right))
     
         
 if(__name__=='__main__'):
@@ -124,31 +133,35 @@ if(__name__=='__main__'):
     #-----------------------------------
     
     #------- LINKED LIST-----------
-    ll1=LinkedList()
-    ll1.add(50,0)
-    ll1.add(51,1)
-    ll1.add(80,2)
-    ll1.add(100,3)
-    ll1.add(190,4)
+    # ll1=LinkedList()
+    # ll1.add(50,0)
+    # ll1.add(51,1)
+    # ll1.add(80,2)
+    # ll1.add(100,3)
+    # ll1.add(190,4)
     
-    ll2=LinkedList()
-    ll2.add(100000,0)
-    ll2.add(21000,1)
-    ll2.add(1050,2)
-    ll2.add(2220,3)
-    ll2.add(3090,4)
-    ll2.add(-3090,5)
-    ll2.add(390,6)
-    ll2.add(30.90,7)
-    ll2.add(309**0,8)
-    ll2.add(3,9)
-    ll2.add(1,10)
+    # ll2=LinkedList()
+    # ll2.add(100000,0)
+    # ll2.add(21000,1)
+    # ll2.add(1050,2)
+    # ll2.add(2220,3)
+    # ll2.add(3090,4)
+    # ll2.add(-3090,5)
+    # ll2.add(390,6)
+    # ll2.add(30.90,7)
+    # ll2.add(309**0,8)
+    # ll2.add(3,9)
+    # ll2.add(1,10)
     
-    #d=llmerge(ll1,ll2)
-    print('---------------------------')
-    e=llsort(ll2)
+    # #d=llmerge(ll1,ll2)
+    # print('---------------------------')
+    # e=llsort(ll2)
     #------------------------
     
+    #---------------- recsort--------------
+    numbers=[5,6,17,8,9,1]
+    d=recursive_mergesort(numbers)
     
+    #--------------------------------
         
         
