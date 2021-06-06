@@ -1,1 +1,1 @@
-export PYTHONPATH=$PYTHONPATH:/home/radhakrishna/Desktop/dsalgos
+export PYTHONPATH=$PYTHONPATH:/home/radhakrishna/projects/dsalgos

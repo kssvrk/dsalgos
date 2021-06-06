@@ -132,6 +132,21 @@ class LinkedList:
                 break
         if(c!=1):
             print('LL HAS NO CYCLES')
+    def reverse(self):
+        #revrse the links of each node.
+        current=self.head 
+        previous=None
+        nex=current.next_node 
+        
+        while(current is not None):
+            current.next_node=previous
+            previous=current
+            
+            current=nex
+            if(nex is not None):
+                nex=nex.next_node
+            
+        self.head=previous
 if(__name__=='__main__'):
     ll=LinkedList()
     ll.add(0,0)
