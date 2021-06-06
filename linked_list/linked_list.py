@@ -118,6 +118,20 @@ class LinkedList:
                 
         if(updated is None):
             raise IndexError(" Given position is out of range")
+    def has_cycle(self):
+        slow=self.head
+        fast=self.head 
+        c=0
+        while (slow.next_node is not None and fast.next_node is not None and fast.next_node.next_node is not None):
+            slow=slow.next_node
+            fast=fast.next_node.next_node 
+            if(slow==fast):
+                print(slow.next_node.data)
+                c=1
+                print('HAS CYCLE')
+                break
+        if(c!=1):
+            print('LL HAS NO CYCLES')
 if(__name__=='__main__'):
     ll=LinkedList()
     ll.add(0,0)
